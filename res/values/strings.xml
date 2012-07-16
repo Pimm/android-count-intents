@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Count Intents Invoker</string>
+	<!-- Names for the intents, used in the type field. -->
+	<string-array name="intent_names">
+		<item>Countdown 3 minutes (absolute)</item>
+		<item>Countdown 1 minute (relative)</item>
+		<item>Countup</item>
+	</string-array>
+	<!-- Texts for the compatibility field. -->
+	<string name="intent_compatibility_none">Not supported</string>
+	<string name="intent_compatibility_one_activity">Supported by one activity</string>
+	<string name="intent_compatibility_multiple_activities">Supported by multiple activities</string>
+	<!-- Toast text. -->
+	<string name="warning_no_compatibility">This intent is currently not supported</string>
+</resources>
