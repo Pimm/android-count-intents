@@ -22,7 +22,7 @@ Using the intents
 
 You're developing an app that's all about Italian food. The app informs the user that this particular pasta should cook for 8
 minutes.  
-Now, you could include a timer in your app, but that's extra work. Plus a larger codebase means more maintanence. Not to
+Now, you could include a timer in your app, but that's extra work. Plus a larger codebase means more maintenance. Not to
 mention that the more stuff you add, the more likely it is that you'll introduce bugs. It's way easier and more hipster to use
 a timer app the user already has on his/her device.
 
