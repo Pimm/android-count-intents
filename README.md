@@ -1,5 +1,5 @@
 action.COUNTDOWN and action.COUNTUP
-=====================
+===================================
 
 We create apps to make phones, tablets and other devices around the world more useful. Useful devices equal happy people. If
 apps seamlessly work together, the devices become even more useful. More useful, happier people. **Love everywhere!**  
@@ -16,7 +16,7 @@ and
 Both intent actions are designed to display a timer app.
 
 Using the intents
----------------------
+-----------------
 
 ### Relative countdown intents
 
@@ -32,14 +32,16 @@ To do so, you can use an intent with the action:
 
 Perhaps the app has a button labelled _open timer_. You can simply write this code:
 
-    openTimerButton.setOnClickListener(new android.view.View.OnClickListener() {
-    	public void onClick(View button) {
-    		int cookingTime = 8 * 60 * 1000;
-    		Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
-    			.setDataAndType(Uri.parse(String.valueOf(cookingTime)), "application/relative-milliseconds");
-    		startActivity(countdownIntent);
-    	}
-    });
+```java
+openTimerButton.setOnClickListener(new android.view.View.OnClickListener() {
+	public void onClick(View button) {
+		int cookingTime = 8 * 60 * 1000;
+		Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
+			.setDataAndType(Uri.parse(String.valueOf(cookingTime)), "application/relative-milliseconds");
+		startActivity(countdownIntent);
+	}
+});
+```
 
 Clicking the button will now display a timer app. The timer app knows about the 8-minute pasta cook. The user can simply start
 the countdown process from within the timer app when the pasta hits the boiling water.
@@ -50,36 +52,42 @@ The above works like a charm if the user has a timer app installed, but not so m
 deal with this.  
 You can use a try-catch block:
 
-    startCountingButton.setOnClickListener(new android.view.View.OnClickListener() {
-    	public void onClick(View button) {
-    		int cookingTime = 8 * 60 * 1000;
-    		Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
-    			.setDataAndType(Uri.parse(String.valueOf(cookingTime)), "application/relative-milliseconds");
-    		try {
-    			startActivity(countdownIntent);
-    		} catch (ActivityNotFoundException exception) {
-    			// No activities can be performed for the countdown intent.
-    		}
-    	}
-    });
+```java
+startCountingButton.setOnClickListener(new android.view.View.OnClickListener() {
+	public void onClick(View button) {
+		int cookingTime = 8 * 60 * 1000;
+		Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
+			.setDataAndType(Uri.parse(String.valueOf(cookingTime)), "application/relative-milliseconds");
+		try {
+			startActivity(countdownIntent);
+		} catch (ActivityNotFoundException exception) {
+			// No activities can be performed for the countdown intent.
+		}
+	}
+});
+```
 
 Within the catch you could use yet another intent to install a timer app, like so:
 
-    Intent installTimerAppIntent = new Intent(Intent.ACTION_VIEW)
-    	.setData(Uri.parse("market://details?id=org.ilumbo.ovo"));
-    startActivity(installTimerAppIntent);
+```java
+Intent installTimerAppIntent = new Intent(Intent.ACTION_VIEW)
+	.setData(Uri.parse("market://details?id=org.ilumbo.ovo"));
+startActivity(installTimerAppIntent);
+```
 
 (Note that not every device has access to Google Play.)
 
 More elegant solutions are available if you determine whether a timer app is installed before it is needed:
 
-    int cookingTime = 8 * 60 * 1000;
-    Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
-    	.setDataAndType(Uri.parse(String.valueOf(cookingTime)), "application/relative-milliseconds");
-    // Check which activities can be performed for the intent, without actually starting them.
-    if (0 == getPackageManager().queryIntentActivities(countdownIntent, 0).size()) {
-    	// No activities can be performed for the countdown intent.
-    }
+```java
+  int cookingTime = 8 * 60 * 1000;
+  Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
+  	.setDataAndType(Uri.parse(String.valueOf(cookingTime)), "application/relative-milliseconds");
+  // Check which activities can be performed for the intent, without actually starting them.
+  if (0 == getPackageManager().queryIntentActivities(countdownIntent, 0).size()) {
+  	// No activities can be performed for the countdown intent.
+  }
+```
 
 ### Absolute countdown intents
 
@@ -90,24 +98,28 @@ exact moment__. The timer app will then be displayed while the countdown process
 
 Simply replace the MIME data type:
 
-    startCountingButton.setOnClickListener(new android.view.View.OnClickListener() {
-    	public void onClick(View button) {
-    		long currentTime = SystemClock.elapsedRealtime();
-    		long alarmTime = currentTime + (15 * 60 * 1000);
-    		Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
-    			.setDataAndType(Uri.parse(String.valueOf(alarmTime)), "application/absolute-milliseconds");
-    		startActivity(countdownIntent);
-    	}
-    });
+```java
+startCountingButton.setOnClickListener(new android.view.View.OnClickListener() {
+	public void onClick(View button) {
+		long currentTime = SystemClock.elapsedRealtime();
+		long alarmTime = currentTime + (15 * 60 * 1000);
+		Intent countdownIntent = new Intent("android.intent.action.COUNTDOWN")
+			.setDataAndType(Uri.parse(String.valueOf(alarmTime)), "application/absolute-milliseconds");
+		startActivity(countdownIntent);
+	}
+});
+```
 
 ### Countup intents
 
 Measuring durations can also be hours of fun. Starting a timer app to do that is even easier:
 
-    Intent countupIntent = new Intent("android.intent.action.COUNTUP");
-    startActivity(countupIntent);
+```java
+Intent countupIntent = new Intent("android.intent.action.COUNTUP");
+startActivity(countupIntent);
+```
 
 Supporting the intents
----------------------
+----------------------
 
 TODO: add a bit of documentation on how to support the intents.
