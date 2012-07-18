@@ -48,7 +48,7 @@ public final class IntentProvider {
 			@Override
 			public final Intent getIntent() {
 				return super.getIntent().cloneFilter()
-					.setDataAndType(Uri.parse(Long.valueOf(SystemClock.elapsedRealtime() + 3 * 60 * 1000).toString()), "application/absolute-milliseconds");
+					.setDataAndType(Uri.parse(String.valueOf(SystemClock.elapsedRealtime() + 3 * 60 * 1000)), "application/absolute-milliseconds");
 			}
 		};
 	}
@@ -70,6 +70,6 @@ public final class IntentProvider {
 	 */
 	public static final IntentContainer getRelativeCountdownIntent(String name) {
 		return new IntentContainer(new Intent(COUNTDOWN_ACTION)
-			.setDataAndType(Uri.parse(Long.valueOf(1 * 60 * 1000).toString()), "application/relative-milliseconds"), name);
+			.setDataAndType(Uri.parse(String.valueOf(1 * 60 * 1000)), "application/relative-milliseconds"), name);
 	}
 }
