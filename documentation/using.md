@@ -1,15 +1,15 @@
 Using the count intents
 =======================
 
-### Relative countdown intents
-
 You're developing an app that's all about Italian food. Your app informs the user that this particular pasta should cook for 8
 minutes. At this point, the user might want to start a timer for 8 minutes.  
 I'm confident that you are able to develop a timer for your app. However:
  1 it'll produce a larger codebase, therefore require more maintenance and increase the probability that your app contains
    bugs, and
- 2 it's not very convenient to a user who already has a timer app (s)he is comfortable with.
+ 2 it's not very convenient for a user who already has a timer app (s)he is comfortable with.
 It's way easier, more user friendly and more hipster to use a timer app already installed on the device.
+
+### Relative countdown intents
 
 To do so, you can use an intent with the action `android.intent.action.COUNTDOWN`
 

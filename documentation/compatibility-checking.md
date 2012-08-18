@@ -55,7 +55,7 @@ if (0 == getPackageManager().queryIntentActivities(countdownIntent, 0).size()) {
 }
 ```
 
-### Proposing a solutions
+### Proposing a solution
 
 If you have determined that the user does not have a timer app installed, you lead them to one. This can be done using – you
 guessed it – an intent.
@@ -67,6 +67,7 @@ Intent installTimerAppIntent = new Intent(Intent.ACTION_VIEW)
 // Start Google Play.
 startActivity(installTimerAppIntent);
 ```
+
 **Note:**  
 Not every device has access to Google Play. The startActivity call above could throw an exception of its own. (The solutions
 mentioned above work here as well!)
