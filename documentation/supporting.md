@@ -86,13 +86,11 @@ if ("android.intent.action.COUNTDOWN".equals(intent.getAction())) {
 			time = Long.parseLong(intent.getDataString());
 		} catch (NumberFormatException exception) {
 			android.util.Log.w(LOG_TAG, "Unexpected intent data. expected a number, got " + intent.getDataString() + ". java.lang.Long.parseLong was used, which failed.");
-			return;
 		}
 		// Check whether the passed time is no earlier than one minute in the past. If a time of more than one minute in the past
 		// is passed, it's probably an error.
 		if (time - SystemClock.elapsedRealtime() < -60000) {
 			android.util.Log.w(LOG_TAG, "Unexpected intent data: too far in the past. An example of an expected value is \"SystemClock.elapsedRealtime() + 15000\".");
-			return;
 		}
 		/**
 		 * The activity has been started by an app that wants an alarm to go off at the time as specified by the time variable.
@@ -106,12 +104,10 @@ if ("android.intent.action.COUNTDOWN".equals(intent.getAction())) {
 			time = Integer.parseInt(intent.getDataString());
 		} catch (NumberFormatException exception) {
 			android.util.Log.w(LOG_TAG, "Unexpected intent data. expected a number, got " + intent.getDataString() + ". java.lang.Integer.parseLong was used, which failed.");
-			return;
 		}
 		// Check whether the passed time is less than one second. If such a time is passed, it's probably an error.
 		if (time < 1000) {
 			android.util.Log.w(LOG_TAG, "Unexpected intent data: number too small. An example of an expected value is \"15000\".");
-			return;
 		}
 		/**
 		 * The activity has been started by an app that wants it to countdown for an amount of time as specified by the time
