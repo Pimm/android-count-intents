@@ -21,7 +21,7 @@ The part of your manifest that defines the (or an) activity of the app might loo
 </activity>
 ```
 
-You can simply add more [intent filters](http://developer.android.com/guide/components/intents-filters.html), like so:
+You can simply add more [intent filters](https://developer.android.com/guide/components/intents-filters.html), like so:
 
 ```xml
 <activity android:name=".TimerActivity">
@@ -61,7 +61,7 @@ You can simply add more [intent filters](http://developer.android.com/guide/comp
 ### Testing
 
 If the above went well, Android now assumes that your app knows how to deal with the intents. To verify this, you can install
-the *[count intent invoker](//github.com/Pimm/android-count-intents/tree/master/invoker)* in this repository.
+the *[count intent invoker](https://github.com/Pimm/android-count-intents/tree/master/invoker)* in this repository.
 
 Once installed, touch/click the intents in the count intent invoker. Doing so should either show your activity, or show a list
 of activities that can be performed for that intent if there are multiple.
@@ -69,11 +69,11 @@ of activities that can be performed for that intent if there are multiple.
 ### Handling the intents
 
 The next step is to actually respond to the intents. In your `onCreate`, you can see what intent caused it to be created using
-[getIntent](//developer.android.com/reference/android/app/Activity.html#getIntent%28%29).
+[getIntent](https://developer.android.com/reference/android/app/Activity.html#getIntent%28%29).
 
 If an existing activity receives the intent,
-[onNewIntent](//developer.android.com/reference/android/app/Activity.html#onNewIntent%28android.content.Intent%29) will be
-called, but that's only if you're developing a rather weird app in the first place.
+[onNewIntent](https://developer.android.com/reference/android/app/Activity.html#onNewIntent%28android.content.Intent%29) will
+be called, but that's only if you're developing a rather weird app in the first place.
 
 Once you have the intent, you should check which action is used and read the data inside:
 

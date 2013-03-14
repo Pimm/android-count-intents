@@ -14,6 +14,6 @@ and
     android.intent.action.COUNTUP
 
 Both intent actions are designed to display a timer app. The intent actions are *neutral* and *open*. You are encouraged to
-**[use them](//github.com/Pimm/android-count-intents/blob/master/documentation/using.md)** and even
-**[support them](//github.com/Pimm/android-count-intents/blob/master/documentation/supporting.md)** in your own projects, where
-appropriate.
+**[use them](https://github.com/Pimm/android-count-intents/blob/master/documentation/using.md)** and even
+**[support them](https://github.com/Pimm/android-count-intents/blob/master/documentation/supporting.md)** in your own projects,
+where appropriate.

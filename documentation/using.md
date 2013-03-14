@@ -37,7 +37,8 @@ the countdown process from within the timer app the moment the pasta hits the bo
 
 **Note:**  
 The above works like a charm if the user has a timer app installed, but not so much if (s)he doesn't. There are
-[several ways](//github.com/Pimm/android-count-intents/blob/master/documentation/compatibility-checking.md) to deal with this.
+[several ways](https://github.com/Pimm/android-count-intents/blob/master/documentation/compatibility-checking.md) to deal with
+this.
 
 ### Absolute countdown intents
 

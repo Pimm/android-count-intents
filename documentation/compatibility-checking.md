@@ -2,7 +2,7 @@ Checking intent compatibility
 =============================
 
 Calling
-[startActivity](//developer.android.com/reference/android/content/Context.html#startActivity%28android.content.Intent%29)
+[startActivity](https://developer.android.com/reference/android/content/Context.html#startActivity%28android.content.Intent%29)
 might result in an `ActivityNotFoundException` being thrown. More precise: if you call startActivity passing an intent the
 device running your app has no activity for, the exception will be thrown. This will crash your app.  
 Not every user has a timer app installed. You must gracefully deal with this situation.
@@ -37,7 +37,7 @@ available.
 More elegant solutions are available if you
 [determine whether a timer app is installed](http://android-developers.blogspot.com/2009/01/can-i-use-this-intent.html) before
 it is needed. You can use
-[queryIntentActivities](//developer.android.com/reference/android/content/pm/PackageManager.html#queryIntentActivities%28android.content.Intent,%20int%29)
+[queryIntentActivities](https://developer.android.com/reference/android/content/pm/PackageManager.html#queryIntentActivities%28android.content.Intent,%20int%29)
 for this purpose. This method returns a list of activities that can be performed for the passed intent. We can check the length
 of said list to predict whether startActivity will be succesful:
 
